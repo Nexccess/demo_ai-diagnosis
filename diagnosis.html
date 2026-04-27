@@ -1259,6 +1259,9 @@ function applyQuestions(qs) {
   window.addEventListener('scroll', () => {
     document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 60);
   });
+
+  // Auto-open diagnosis overlay on load
+  openDiagnosis();
 })();
 
 // ── Diagnosis overlay ──────────────────────────────────────────
