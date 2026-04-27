@@ -989,100 +989,47 @@ footer {
   <div class="diag-body">
 
     <!-- STEP 1: 基本情報 -->
+    <!-- STEP 1 -->
     <div class="diag-step active" id="step-1">
       <div class="diag-step-num">STEP 01 / 04</div>
-      <h2 class="diag-step-title">基本情報を教えてください</h2>
-      <p class="diag-step-sub">診断精度を高めるために使用します</p>
-
-      <div class="diag-field">
-        <label class="diag-label">業種 / 業界 <span style="color:var(--crimson)">*</span></label>
-        <input class="diag-input" id="f-industry" type="text" placeholder="例：士業、医療、製造、不動産、IT、コンサルなど">
-      </div>
-      <div class="diag-field">
-        <label class="diag-label">企業規模</label>
-        <select class="diag-select" id="f-size">
-          <option value="">選択してください</option>
-          <option>個人・フリーランス</option>
-          <option>小規模（〜10名）</option>
-          <option>中小企業（10〜100名）</option>
-          <option>中堅〜大企業（100名〜）</option>
-        </select>
-      </div>
-      <div class="diag-field">
-        <label class="diag-label">地域（主な営業地域）</label>
-        <input class="diag-input" id="f-area" type="text" placeholder="例：東京、神奈川、関東全域、全国">
-      </div>
-
+      <h2 class="diag-step-title" id="s1-title">基本情報を教えてください</h2>
+      <p class="diag-step-sub" id="s1-sub">診断精度を高めるために使用します</p>
+      <div id="s1-fields"><!-- questions.json で生成 --></div>
       <div class="diag-actions">
         <button class="btn-diag-next" onclick="nextStep(1)">次へ →</button>
       </div>
     </div>
 
-    <!-- STEP 2: 課題 -->
+    <!-- STEP 2 -->
     <div class="diag-step" id="step-2">
       <div class="diag-step-num">STEP 02 / 04</div>
-      <h2 class="diag-step-title">現在の課題を選んでください</h2>
-      <p class="diag-step-sub">当てはまるものをすべて選択してください</p>
-
-      <div class="diag-checkbox-grid" id="challenge-grid">
-        <!-- JS で生成 -->
-      </div>
-
+      <h2 class="diag-step-title" id="s2-title">現在の課題を選んでください</h2>
+      <p class="diag-step-sub" id="s2-sub">当てはまるものをすべて選択してください</p>
+      <div class="diag-checkbox-grid" id="challenge-grid"><!-- questions.json で生成 --></div>
       <div class="diag-actions">
         <button class="btn-diag-back" onclick="prevStep(2)">← 戻る</button>
         <button class="btn-diag-next" onclick="nextStep(2)">次へ →</button>
       </div>
     </div>
 
-    <!-- STEP 3: 現状 -->
+    <!-- STEP 3 -->
     <div class="diag-step" id="step-3">
       <div class="diag-step-num">STEP 03 / 04</div>
-      <h2 class="diag-step-title">現在の業務状況</h2>
-      <p class="diag-step-sub">おおよその数値で構いません</p>
-
-      <div class="diag-field">
-        <label class="diag-label">月間の問い合わせ・見込み客数</label>
-        <select class="diag-select" id="f-inquiries">
-          <option value="">選択してください</option>
-          <option>10件未満</option>
-          <option>10〜30件</option>
-          <option>30〜100件</option>
-          <option>100件以上</option>
-          <option>不明・把握していない</option>
-        </select>
-      </div>
-      <div class="diag-field">
-        <label class="diag-label">現在使用中のツール・システム</label>
-        <input class="diag-input" id="f-tools" type="text" placeholder="例：Googleフォーム、Salesforce、LINE、自社システムなし など">
-      </div>
-
+      <h2 class="diag-step-title" id="s3-title">現在の状況</h2>
+      <p class="diag-step-sub" id="s3-sub">おおよその数値で構いません</p>
+      <div id="s3-fields"><!-- questions.json で生成 --></div>
       <div class="diag-actions">
         <button class="btn-diag-back" onclick="prevStep(3)">← 戻る</button>
         <button class="btn-diag-next" onclick="nextStep(3)">次へ →</button>
       </div>
     </div>
 
-    <!-- STEP 4: 目標 -->
+    <!-- STEP 4 -->
     <div class="diag-step" id="step-4">
       <div class="diag-step-num">STEP 04 / 04</div>
-      <h2 class="diag-step-title">目標・導入イメージ</h2>
-      <p class="diag-step-sub">AI診断の精度向上に使用します</p>
-
-      <div class="diag-field">
-        <label class="diag-label">導入で実現したいこと</label>
-        <input class="diag-input" id="f-goals" type="text" placeholder="例：受付工数を削減したい、成約率を上げたい、夜間対応を自動化したい">
-      </div>
-      <div class="diag-field">
-        <label class="diag-label">導入検討時期・予算感</label>
-        <select class="diag-select" id="f-timing">
-          <option value="">選択してください</option>
-          <option>3ヶ月以内に導入検討</option>
-          <option>6ヶ月以内に検討</option>
-          <option>来期以降で検討</option>
-          <option>情報収集段階</option>
-        </select>
-      </div>
-
+      <h2 class="diag-step-title" id="s4-title">目標・ご希望</h2>
+      <p class="diag-step-sub" id="s4-sub">AI診断の精度向上に使用します</p>
+      <div id="s4-fields"><!-- questions.json で生成 --></div>
       <div class="diag-actions">
         <button class="btn-diag-back" onclick="prevStep(4)">← 戻る</button>
         <button class="btn-diag-next" onclick="submitDiagnosis()">AIで診断する ⚡</button>
@@ -1198,35 +1145,109 @@ footer {
 // ── State ──────────────────────────────────────────────────────
 let currentStep = 1;
 let diagResult = null;
+let QS = null; // questions.json data
 
-const CHALLENGES = [
-  '集客数が少ない・不安定',
-  '問い合わせ後の対応工数が多い',
-  '担当者不在時に対応できない',
-  '見込み顧客の選別ができていない',
-  '成約率が低い・改善策がわからない',
-  '予約・スケジュール管理が煩雑',
-  '顧客データが分散・属人化している',
-  '夜間・休日の対応ができていない',
-  '営業プロセスが標準化されていない',
-  'システム導入コストが見えない',
-];
+// ── Default fallback questions (使われるのはquestions.json未配置時のみ) ──
+const DEFAULT_QS = {
+  step1: {
+    title: '基本情報を教えてください',
+    subtitle: '診断精度を高めるために使用します',
+    fields: [
+      { id: 'f-industry', type: 'text', label: '業種 / 業界', placeholder: '例：士業、医療、製造、不動産、IT、コンサルなど', required: true },
+      { id: 'f-size', type: 'select', label: '企業規模', options: ['選択してください','個人・フリーランス','小規模（〜10名）','中小企業（10〜100名）','中堅〜大企業（100名〜）'] },
+      { id: 'f-area', type: 'text', label: '地域（主な営業地域）', placeholder: '例：東京、神奈川、関東全域、全国' }
+    ]
+  },
+  step2: {
+    title: '現在の課題を選んでください',
+    subtitle: '当てはまるものをすべて選択してください',
+    challenges: ['集客数が少ない・不安定','問い合わせ後の対応工数が多い','担当者不在時に対応できない','見込み顧客の選別ができていない','成約率が低い・改善策がわからない','予約・スケジュール管理が煩雑','顧客データが分散・属人化している','夜間・休日の対応ができていない','営業プロセスが標準化されていない','システム導入コストが見えない']
+  },
+  step3: {
+    title: '現在の業務状況',
+    subtitle: 'おおよその数値で構いません',
+    fields: [
+      { id: 'f-inquiries', type: 'select', label: '月間の問い合わせ・見込み客数', options: ['選択してください','10件未満','10〜30件','30〜100件','100件以上','不明・把握していない'] },
+      { id: 'f-tools', type: 'text', label: '現在使用中のツール・システム', placeholder: '例：Googleフォーム、Salesforce、LINE、自社システムなし' }
+    ]
+  },
+  step4: {
+    title: '目標・導入イメージ',
+    subtitle: 'AI診断の精度向上に使用します',
+    fields: [
+      { id: 'f-goals', type: 'text', label: '導入で実現したいこと', placeholder: '例：受付工数を削減したい、成約率を上げたい、夜間対応を自動化したい' },
+      { id: 'f-timing', type: 'select', label: '導入検討時期・予算感', options: ['選択してください','3ヶ月以内に導入検討','6ヶ月以内に検討','来期以降で検討','情報収集段階'] }
+    ]
+  }
+};
 
-// ── Init ───────────────────────────────────────────────────────
-(function() {
-  // Checkbox grid
+// ── Build field HTML ───────────────────────────────────────────
+function buildFields(fields, containerId) {
+  const container = document.getElementById(containerId);
+  if (!container) return;
+  container.innerHTML = '';
+  fields.forEach(f => {
+    const wrap = document.createElement('div');
+    wrap.className = 'diag-field';
+    const req = f.required ? ' <span style="color:var(--crimson)">*</span>' : '';
+    if (f.type === 'select') {
+      const opts = (f.options || []).map((o,i) => `<option value="${i===0?'':o}">${o}</option>`).join('');
+      wrap.innerHTML = `<label class="diag-label">${f.label}${req}</label><select class="diag-select" id="${f.id}">${opts}</select>`;
+    } else {
+      wrap.innerHTML = `<label class="diag-label">${f.label}${req}</label><input class="diag-input" id="${f.id}" type="text" placeholder="${f.placeholder||''}">`;
+    }
+    container.appendChild(wrap);
+  });
+}
+
+function buildChallenges(challenges) {
   const grid = document.getElementById('challenge-grid');
-  CHALLENGES.forEach(c => {
+  if (!grid) return;
+  grid.innerHTML = '';
+  challenges.forEach(c => {
     const lbl = document.createElement('label');
     lbl.className = 'diag-checkbox-label';
     lbl.innerHTML = `<input type="checkbox" value="${c}"><div class="diag-check-icon"></div>${c}`;
-    lbl.addEventListener('click', (e) => {
+    lbl.addEventListener('click', e => {
       e.preventDefault();
-      const isChecked = lbl.classList.toggle('checked');
-      lbl.querySelector('.diag-check-icon').textContent = isChecked ? '✓' : '';
+      const checked = lbl.classList.toggle('checked');
+      lbl.querySelector('.diag-check-icon').textContent = checked ? '✓' : '';
     });
     grid.appendChild(lbl);
   });
+}
+
+function applyQuestions(qs) {
+  // Step 1
+  document.getElementById('s1-title').textContent = qs.step1.title;
+  document.getElementById('s1-sub').textContent   = qs.step1.subtitle;
+  buildFields(qs.step1.fields, 's1-fields');
+  // Step 2
+  document.getElementById('s2-title').textContent = qs.step2.title;
+  document.getElementById('s2-sub').textContent   = qs.step2.subtitle;
+  buildChallenges(qs.step2.challenges);
+  // Step 3
+  document.getElementById('s3-title').textContent = qs.step3.title;
+  document.getElementById('s3-sub').textContent   = qs.step3.subtitle;
+  buildFields(qs.step3.fields, 's3-fields');
+  // Step 4
+  document.getElementById('s4-title').textContent = qs.step4.title;
+  document.getElementById('s4-sub').textContent   = qs.step4.subtitle;
+  buildFields(qs.step4.fields, 's4-fields');
+}
+
+// ── Init ───────────────────────────────────────────────────────
+(async function() {
+  // Load questions.json (fall back to default if missing)
+  try {
+    const res = await fetch('./questions.json');
+    if (res.ok) {
+      QS = await res.json();
+    } else { throw new Error('not found'); }
+  } catch {
+    QS = DEFAULT_QS;
+  }
+  applyQuestions(QS);
 
   // Scroll reveal
   const ro = new IntersectionObserver(entries => {
@@ -1276,16 +1297,20 @@ function hideAll() {
 
 function nextStep(from) {
   if (from === 1) {
-    if (!document.getElementById('f-industry').value.trim()) {
-      document.getElementById('f-industry').focus();
-      document.getElementById('f-industry').style.borderColor = 'var(--crimson)';
+    // validate first required field dynamically
+    const reqField = QS && QS.step1.fields.find(f => f.required);
+    const fid = reqField ? reqField.id : 'f-industry';
+    const el = document.getElementById(fid);
+    if (el && !el.value.trim()) {
+      el.focus();
+      el.style.borderColor = 'var(--crimson)';
       return;
     }
   }
   if (from === 2) {
     const checked = document.querySelectorAll('#challenge-grid .diag-checkbox-label.checked');
     if (checked.length === 0) {
-      alert('課題を1つ以上選択してください');
+      alert('1つ以上選択してください');
       return;
     }
   }
@@ -1300,15 +1325,29 @@ async function submitDiagnosis() {
     document.querySelectorAll('#challenge-grid .diag-checkbox-label.checked input')
   ).map(i => i.value);
 
+  // Collect all dynamic field values keyed by question label
+  const answers = {};
+  const allFields = [
+    ...(QS.step1.fields || []),
+    ...(QS.step3.fields || []),
+    ...(QS.step4.fields || [])
+  ];
+  allFields.forEach(f => {
+    const el = document.getElementById(f.id);
+    if (el) answers[f.label] = el.value;
+  });
+
   const payload = {
-    industry:          document.getElementById('f-industry').value,
-    size:              document.getElementById('f-size').value,
-    area:              document.getElementById('f-area').value,
+    service_context: (QS.meta && QS.meta.service_type) || '',
+    industry:        answers[QS.step1.fields[0]?.label] || '',
+    size:            answers[QS.step1.fields[1]?.label] || '',
+    area:            answers[QS.step1.fields[2]?.label] || '',
     challenges,
-    monthly_inquiries: document.getElementById('f-inquiries').value,
-    current_tools:     document.getElementById('f-tools').value,
-    goals:             document.getElementById('f-goals').value,
-    budget_timing:     document.getElementById('f-timing').value,
+    monthly_inquiries: answers[QS.step3.fields[0]?.label] || '',
+    current_tools:     answers[QS.step3.fields[1]?.label] || '',
+    goals:             answers[QS.step4.fields[0]?.label] || '',
+    budget_timing:     answers[QS.step4.fields[1]?.label] || '',
+    all_answers:       answers,
   };
 
   // Hide all steps, show loading
