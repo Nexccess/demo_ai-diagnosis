@@ -1073,21 +1073,21 @@ footer {
       </div>
 
       <div class="diag-actions" style="margin-top:2rem;">
-        <button class="btn-diag-next" onclick="showBooking()">この結果を持って相談予約する →</button>
+        <button class="btn-diag-next" id="btn-show-booking" onclick="showBooking()">この結果を持って予約する →</button>
       </div>
     </div>
 
     <!-- BOOKING -->
     <div id="diag-booking">
       <div class="diag-step-num">BOOKING</div>
-      <h2 class="diag-step-title">無料相談・デモの予約</h2>
-      <p class="diag-step-sub">診断結果をもとに担当者がご提案します（2営業日以内に連絡）</p>
+      <h2 class="diag-step-title" id="booking-title">無料相談・デモの予約</h2>
+      <p class="diag-step-sub" id="booking-sub">診断結果をもとに担当者がご提案します（2営業日以内に連絡）</p>
 
       <div class="booking-score-badge" id="booking-badge">診断スコア: — 点</div>
 
       <div class="booking-grid">
-        <div class="diag-field">
-          <label class="diag-label">会社名 <span style="color:var(--crimson)">*</span></label>
+        <div class="diag-field" id="booking-company-field">
+          <label class="diag-label" id="booking-company-label">会社名 <span style="color:var(--crimson)">*</span></label>
           <input class="diag-input" id="b-company" type="text" placeholder="株式会社〇〇">
         </div>
         <div class="diag-field">
@@ -1102,7 +1102,7 @@ footer {
           <label class="diag-label">電話番号</label>
           <input class="diag-input" id="b-phone" type="tel" placeholder="090-0000-0000">
         </div>
-        <div class="diag-field">
+        <div class="diag-field" id="booking-position-field">
           <label class="diag-label">役職</label>
           <input class="diag-input" id="b-position" type="text" placeholder="代表取締役、営業部長 など">
         </div>
@@ -1234,6 +1234,36 @@ function applyQuestions(qs) {
   document.getElementById('s4-title').textContent = qs.step4.title;
   document.getElementById('s4-sub').textContent   = qs.step4.subtitle;
   buildFields(qs.step4.fields, 's4-fields');
+  // Booking form
+  if (qs.booking) applyBookingConfig(qs.booking);
+}
+
+function applyBookingConfig(b) {
+  // タイトル・サブ
+  if (b.title)    document.getElementById('booking-title').textContent = b.title;
+  if (b.subtitle) document.getElementById('booking-sub').textContent   = b.subtitle;
+  // CTA（診断結果ページのボタン）
+  if (b.cta_label) {
+    const btn = document.getElementById('btn-show-booking');
+    if (btn) btn.textContent = b.cta_label;
+  }
+  // 会社名フィールド：null = 非表示、文字列 = ラベル変更
+  const companyField = document.getElementById('booking-company-field');
+  const companyLabel = document.getElementById('booking-company-label');
+  if (b.company_label === null || b.company_label === false) {
+    companyField.style.display = 'none';
+  } else if (b.company_label) {
+    companyLabel.innerHTML = b.company_label + ' <span style="color:var(--crimson)">*</span>';
+  }
+  // 役職フィールド：null = 非表示
+  const posField = document.getElementById('booking-position-field');
+  if (b.position_label === null || b.position_label === false) {
+    posField.style.display = 'none';
+  }
+  // メッセージplaceholder
+  if (b.message_placeholder) {
+    document.getElementById('b-message').placeholder = b.message_placeholder;
+  }
 }
 
 // ── Init ───────────────────────────────────────────────────────
@@ -1469,7 +1499,9 @@ async function submitBooking() {
   const email   = document.getElementById('b-email').value.trim();
   const date    = document.getElementById('b-date').value;
   const time    = document.getElementById('b-time').value;
-  if (!company || !name || !email) { alert('会社名・お名前・メールアドレスは必須です'); return; }
+  const companyRequired = document.getElementById('booking-company-field').style.display !== 'none';
+  if (companyRequired && !company) { alert('会社名は必須です'); return; }
+  if (!name || !email) { alert('お名前・メールアドレスは必須です'); return; }
   if (!date || !time) { alert('希望日・希望時間を選択してください'); return; }
 
   const payload = {
